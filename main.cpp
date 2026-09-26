@@ -3,13 +3,23 @@
 // SPDX-License-Identifier: LicenseRef-Proprietary
 //
 // Console-only SmartSpectra example.
-// Uses a USB camera and prints cardio/breathing metrics to stdout.
+// Prints cardio/breathing metrics to stdout.
+//
+// Works with:
+//   - A USB (UVC) webcam, used directly.
+//   - A Raspberry Pi CSI camera (CAM/DISP1 port), via a v4l2loopback
+//     bridge — see raspi_camera_bridge.sh. The SDK's UseCamera() opens
+//     a standard V4L2 capture node, which a CSI camera does not expose
+//     on its own (it's driven by libcamera, not classic V4L2 capture),
+//     so the bridge script re-exposes it as one.
 //
 // Usage:
 //   ./metrics_console --api_key=YOUR_API_KEY
 //
 // Optional:
-//   --camera_device_index=0
+//   --camera_device_index=0    (USB cam) or the loopback index the
+//                               bridge script printed (RPi CSI cam,
+//                               e.g. 10 for /dev/video10)
 //   --capture_width_px=1280
 //   --capture_height_px=720
 //   --capture_fps=30
@@ -49,7 +59,10 @@ ABSL_FLAG(
     int,
     camera_device_index,
     0,
-    "USB camera device index. Usually 0 (/dev/video0).");
+    "V4L2 capture device index. For a USB camera this is usually 0 "
+    "(/dev/video0). For a Raspberry Pi CSI camera, run "
+    "raspi_camera_bridge.sh first and pass the loopback index it "
+    "prints (e.g. 10 for /dev/video10).");
 
 ABSL_FLAG(
     int,
@@ -226,7 +239,7 @@ int main(int argc, char** argv) {
         << "Camera: /dev/video"
         << camera_index
         << '\n'
-        << "Press Ctrl+C to stop.\n\n';
+        << "Press Ctrl+C to stop.\n\n";
 
     // ------------------------------------------------------------
     // Run until Ctrl+C
