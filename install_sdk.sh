@@ -21,8 +21,7 @@ echo "3. Downloading and extracting SmartSpectra SDK v${VERSION}..."
 sudo rm -rf "${INSTALL_DIR}"
 sudo mkdir -p "${INSTALL_DIR}"
 
-curl -fsSL "https://github.com/Presage-Security/SmartSpectra/releases/download/v\({VERSION}/smartspectra-sdk-\){VERSION}-linux-jammy-arm64.tar.gz" \
-  | sudo tar -xzf - -C "${INSTALL_DIR}" --strip-components=1
+curl -fsSL "https://github.com/Presage-Security/SmartSpectra/releases/download/v\({VERSION}/smartspectra-sdk-\){VERSION}-linux-jammy-arm64.tar.gz" | sudo tar -xzf - -C "${INSTALL_DIR}" --strip-components=1
 
 echo "4. Configuring environment variables and dynamic linker..."
 echo "export PKG_CONFIG_PATH=${INSTALL_DIR}/lib/pkgconfig:\$PKG_CONFIG_PATH" | sudo tee /etc/profile.d/smartspectra.sh > /dev/null
