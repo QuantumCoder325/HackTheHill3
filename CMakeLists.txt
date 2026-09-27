@@ -12,11 +12,13 @@ find_package(absl REQUIRED)
 include_directories(
     ${SMARTSPECTRA_ROOT}/include
     ${SMARTSPECTRA_ROOT}/include/smartspectra/interface
+    /opt/protobuf-28.3/include
     ${OpenCV_INCLUDE_DIRS}
 )
 
 link_directories(
     ${SMARTSPECTRA_ROOT}/lib
+    /opt/protobuf-28.3/lib
 )
 
 add_executable(metrics_console main.cpp)
@@ -24,6 +26,7 @@ add_executable(metrics_console main.cpp)
 target_link_libraries(metrics_console PRIVATE
     ${OpenCV_LIBS}
     smartspectra
+    protobuf
     absl::flags
     absl::flags_parse
 )
