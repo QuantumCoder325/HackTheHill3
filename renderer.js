@@ -38,7 +38,7 @@ const { Chart } = require('chart.js/auto');
 // For a production app, fetch the key from OS secure storage (Keychain on
 // macOS, DPAPI on Windows, libsecret on Linux) or from a signed config
 // blob your backend serves — don't bake it into the renderer bundle.
-const API_KEY = 'eW3AED37FM3V8G4m2371oaHswUDArudq4zXK9LHP';
+const API_KEY = 'WM6GeKd2ss7cpJX7ZQtzw2M6TPdoahFnazeb90qx';
 if (API_KEY === 'YOUR_API_KEY_HERE') {
     console.warn(
         '[sample] API_KEY is the placeholder value — edit renderer.js and ' +
@@ -81,15 +81,15 @@ const VALIDATION_NAMES = Object.fromEntries(
 // bundles enabled) stays cheap. Each `metrics` event delivers a cumulative
 // Metrics protobuf so we simply replace the dataset wholesale instead of
 // appending.
-function makeChart(canvasId, yLabel) {
+function makeChart(canvasId, yLabel, lineColour) {
     const ctx = document.getElementById(canvasId).getContext('2d');
     return new Chart(ctx, {
         type: 'line',
         data: {
             datasets: [{
                 data:            [],
-                borderColor:     '#e3635f',
-                backgroundColor: '#e3635f',
+                borderColor:     lineColour,
+                backgroundColor: lineColour,
                 borderWidth:     1.5,
                 pointRadius:     0,
                 tension:         0,
@@ -128,10 +128,10 @@ function makeChart(canvasId, yLabel) {
 }
 
 const charts = {
-    breathingRate:     makeChart('chart-breathing-rate',     'BR/min'),
-    breathingTrace:    makeChart('chart-breathing-trace',    null),
-    pulseRate:         makeChart('chart-pulse-rate',         'BPM'),
-    arterialPressure:  makeChart('chart-arterial-pressure',  null),
+    breathingRate:     makeChart('chart-breathing-rate',     'BR/min', "#2E5FFF"),
+    breathingTrace:    makeChart('chart-breathing-trace',    null,"#2E5FFF"),
+    pulseRate:         makeChart('chart-pulse-rate',         'BPM', "#e3635f"),
+    arterialPressure:  makeChart('chart-arterial-pressure',  null, "#e3635f"),
 };
 
 function tsToNumber(ts) {

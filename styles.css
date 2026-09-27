@@ -1,9 +1,9 @@
 :root {
     color-scheme: dark;
-    --bg:        #101218;
-    --panel:     #1a1d27;
-    --border:    #2a2f3d;
-    --text:      #e8e9ee;
+    --bg:        #000000;
+    --panel:     #000000;
+    --border:    #000000;
+    --text:      #FFFFFF;
     --muted:     #7a8095;
     --accent:    #4c8df6;
     --ok:        #3ec78a;
@@ -79,7 +79,7 @@ header h1 {
 /* --- Main two-column layout -------------------------------------------- */
 main {
     flex: 1;
-    display: grid;
+    display: flex;
     grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);  /* ~40% / ~60% */
     gap: 16px;
     padding: 16px 24px;
@@ -88,6 +88,9 @@ main {
 }
 
 .left-col {
+    width: 980px;
+    min-width: 980px;
+    max-width: 980px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -95,24 +98,47 @@ main {
     min-height: 0;
 }
 
-.right-col {
+.mid-col {
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+
     display: flex;
     flex-direction: column;
     gap: 12px;
     overflow-y: auto;
     min-height: 0;
     padding-right: 4px;  /* breathing room for the scrollbar */
+    margin-left: auto
+}
+
+.right-col {
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    min-height: 0;
+    padding-right: 4px;  /* breathing room for the scrollbar */
+    margin-left: auto
 }
 
 /* --- Preview ------------------------------------------------------------ */
 .preview {
+    width: 300px;         /* Explicit width */
+    max-width: 300px;      /* Prevents it from going off smaller screens */
+    height: 480px;         /* Scales vertically based on content */
+    max-height: 480px;    /* Caps the height and forces scrolling if too long */
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-    aspect-ratio: 16 / 9;
-    flex-shrink: 0;
+    aspect-ratio: 300 / 480;
+    flex-shrink: 1;
 }
 
 .preview video {
@@ -140,8 +166,8 @@ main {
 
 /* --- Live numeric readouts --------------------------------------------- */
 .readouts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
     gap: 8px;
 }
 .readout {

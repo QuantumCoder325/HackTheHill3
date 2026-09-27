@@ -61,7 +61,7 @@ function createWindow() {
     const win = new BrowserWindow({
         width: 1100,
         height: 760,
-        backgroundColor: '#101218',
+        backgroundColor: '#000000',
         webPreferences: {
             // Point the BrowserWindow at the package's preload bridge so
             // the renderer's SmartSpectraSDK can talk to this main process.
