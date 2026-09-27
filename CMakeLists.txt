@@ -13,6 +13,7 @@ find_package(OpenCV REQUIRED)
 # Include directories
 include_directories(
     ${SMARTSPECTRA_ROOT}/include
+    ${SMARTSPECTRA_ROOT}/include/smartspectra/interface
     ${OpenCV_INCLUDE_DIRS}
 )
 
