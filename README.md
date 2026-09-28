@@ -4,6 +4,9 @@
 
 <p align="center">In emergency situations, first responders need useful patient information as quickly as possible, but collecting vital signs can take time and often requires physical contact, extra equipment, and divided attention. We wanted to explore what would happen if some of that information could be captured passively through a camera and displayed directly in a responder’s field of view.</p>
 
+<p align="center"><a href="https://devpost.com/software/tempname-sfk4wn">Devpost</a></p>
+
+
 [![Stars](https://img.shields.io/github/stars/QuantumCoder325/HackTheHill3?style=flat-square)](https://github.com/QuantumCoder325/HackTheHill3/stargazers) [![Forks](https://img.shields.io/github/forks/QuantumCoder325/HackTheHill3?style=flat-square)](https://github.com/QuantumCoder325/HackTheHill3/network) [![Issues](https://img.shields.io/github/issues/QuantumCoder325/HackTheHill3?style=flat-square)](https://github.com/QuantumCoder325/HackTheHill3/issues) [![Watchers](https://img.shields.io/github/watchers/QuantumCoder325/HackTheHill3?style=flat-square)](https://github.com/QuantumCoder325/HackTheHill3/watchers) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 ![C++](https://img.shields.io/badge/-C%2B%2B-555?style=flat-square&logo=c%2B%2B) ![CMake](https://img.shields.io/badge/-CMake-555?style=flat-square&logo=cmake) ![Node.js](https://img.shields.io/badge/-Node.js-555?style=flat-square&logo=node.js) ![Electron](https://img.shields.io/badge/-Electron-555?style=flat-square&logo=electron) ![SmartSpectra SDK](https://img.shields.io/badge/-SmartSpectra%20SDK-555?style=flat-square&logo=smartspectra%20sdk)
@@ -26,15 +29,12 @@
 - [🙏 Acknowledgements](#acknowledgements)
 
 ## 📸 Screenshots
-
-> Add your screenshots here.
-
 ![Bird's eye view](./screenshots/birdsEye.png)
 ![Isometric view](./screenshots/isometric.png)
 ![No lid, view 1](./screenshots/noLid1.png)
 ![No lid, view 2](./screenshots/noLid2.png)
 
-## ⚙️ Prerequisites
+## ⚙️ Hardware Used
 
 - Raspberry Pi 5, 8GB
 - Raspberry Pi Camera Module 3, standard 75° FOV
@@ -76,8 +76,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 🙏 Acknowledgements
 
-- Hack The Hill 3
-- MLH
+- Hack The Hill 3 (For Hosting)
+- MLH (For Hardware Support)
 
 ---
 
