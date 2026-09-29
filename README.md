@@ -40,13 +40,6 @@
 - Raspberry Pi Camera Module 3, standard 75° FOV
 - Display (Rayneo Air 4 Pro's were used for the Demo)
 
-## 🚀 Installation
-
-```bash
-rpicam-vid -t 0 --inline --framerate 30 --width 640 --height 480 --codec yuv420 -o - | \
-ffmpeg -fflags nobuffer -flags low_delay -f rawvideo -pix_fmt yuv420p -s 640x480 -r 30 -i - -f v4l2 /dev/video10
-```
-
 ## 💻 Usage
 
 ```bash
